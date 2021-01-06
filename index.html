@@ -185,6 +185,8 @@ Error message and password prompt
 
 <li>Draft of 'New Tiddler'</li>
 
+<li>Emacs + TiddlyWiki 打造强大个人 Wiki - Org-mode - Emacs China</li>
+
 </ul>
 </p>
 
@@ -14161,7 +14163,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210106094909255" list="$:/ControlPanel GettingStarted" modified="20210106094909255" title="$:/StoryList">
+<div created="20210106094909255" list="[[Emacs + TiddlyWiki 打造强大个人 Wiki - Org-mode - Emacs China]] $:/ControlPanel GettingStarted" modified="20210106094909255" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -14526,6 +14528,68 @@ TiddlyWiki 的[社区论坛](https://link.zhihu.com/?target=https%3A//groups.goo
 </div>
 <div created="20210106091539750" draft.of="New Tiddler" draft.title="New Tiddler" modified="20210106091539751" tags="" title="Draft of 'New Tiddler'">
 <pre></pre>
+</div>
+<div created="20210106095016618" modified="20210106095029012" tags="" title="Emacs + TiddlyWiki 打造强大个人 Wiki - Org-mode - Emacs China">
+<pre>&gt; 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [emacs-china.org](https://emacs-china.org/t/emacs-tiddlywiki-wiki/14887) ![](https://emacs-china.org/user_avatar/emacs-china.org/huangchen1989/45/8699_2.png)
+
+[![](https://emacs-china.org/uploads/default/optimized/2X/8/869dc1d02425921f417355b4700d08cab48864ac_2_690x455.png)Snipaste_2020-10-21_00-13-361759×1162 245 KB](https://emacs-china.org/uploads/default/original/2X/8/869dc1d02425921f417355b4700d08cab48864ac.png &quot;Snipaste_2020-10-21_00-13-36&quot;)
+
+希望实现的功能
+=======
+
+*   使用 Emacs org-mode 写文件，保存文件后，自动渲染到 wiki 页面上
+*   修改 org 文件，wiki 页面自动修改
+*   wiki 功能完整 如标签系统 语法高亮 markdown 支持
+
+思路
+==
+
+*   发现了 TiddlyWiki 这个强大的 wiki 系统
+*   google 搜如何修改本地文件 同时刷新 Tiddlywiki 发现了 TW5-Bob 插件
+*   Tiddlywiki 没有官方的 orgmode 插件 但是有 markdown 插件，而 emacs 有 orgmode 转 markdown 插件
+*   TW5-Bob 只能监测 .tid 文件变化，要改源码
+
+下载安装配置 带有本地文件驱动插件的 TiddlyWiki
+=============================
+
+*   [TW5-Bob 7](https://github.com/OokTech/TW5-Bob/)
+
+按照 readme 走
+
+```
+git clone --depth=1 --branch v5.1.21 https://github.com/Jermolene/TiddlyWiki5.git
+git clone --depth=1 https://github.com/OokTech/TW5-Bob.git TiddlyWiki5/plugins/OokTech/Bob
+mkdir TiddlyWiki5/Wikis
+cp -r TiddlyWiki5/plugins/OokTech/Bob/MultiUserWiki TiddlyWiki5/Wikis/BobWiki/
+
+
+```
+
+*   也可以 npm 安装 TiddlyWiki node.js 版 再把对应文件放进 node_modules 对应文件夹里
+*   配置 TW5 markdown 插件、highlight 插件等
+*   修改 OokTech/Bob 插件的源码 使他能侦测到 tiddlers 文件夹中 .md 的变化
+
+启动方式
+====
+
+```
+cd TiddlyWiki5
+node ./tiddlywiki.js Wikis/BobWiki  --wsserver
+
+
+```
+
+wiki 编辑流程
+=========
+
+*   tiddlywiki 上新建文件 选择 markdown 格式
+*   tiddlers 文件夹中新建同名 .org 文件
+*   org 文件编辑
+*   M-x org-gfm-export-to-markdown
+
+![](https://emacs-china.org/user_avatar/emacs-china.org/supermmx/45/9572_2.png)
+
+多谢介绍，这个 TiddlyWiki 有点意思，跟我的需求也很像。</pre>
 </div>
 
 

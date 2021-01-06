@@ -185,6 +185,8 @@ Error message and password prompt
 
 <li>2020 年了，你的笔记有 “双向链接” 吗？</li>
 
+<li>数据的块存储、文件存储与对象存储 - 0xFFFF</li>
+
 <li>用 TiddlyWiki 替代 Notion 和 EverNote 作为个人知识管理系统</li>
 
 <li>Draft of 'New Tiddler 1'</li>
@@ -14175,7 +14177,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210106094909255" list="[[2020 年了，你的笔记有 “双向链接” 吗？]] $:/ControlPanel $:/languages/zh-CN $:/languages/zh-CN/icon [[Emacs + TiddlyWiki 打造强大个人 Wiki - Org-mode - Emacs China]] [[用 TiddlyWiki 替代 Notion 和 EverNote 作为个人知识管理系统]]" modified="20210106095402281" title="$:/StoryList">
+<div created="20210106094909255" list="[[数据的块存储、文件存储与对象存储 - 0xFFFF]] [[2020 年了，你的笔记有 “双向链接” 吗？]] $:/ControlPanel $:/languages/zh-CN $:/languages/zh-CN/icon [[Emacs + TiddlyWiki 打造强大个人 Wiki - Org-mode - Emacs China]] [[用 TiddlyWiki 替代 Notion 和 EverNote 作为个人知识管理系统]]" modified="20210106095402281" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -14399,6 +14401,79 @@ TiddlyWiki 是一款非线性笔记，开源免费，emmm，非线性说白了�
 优秀的软件也有很多，Dynalist，notion，workflowy 等等，选择适合自己一款就好了，我选 TiddlyWiki，原因是我折腾了好久，不忍心放弃了。。。
 
 再说一下让一款软件 “做第二个大脑“和”all in one” 这类宣传语的看法，很好，但它仅仅是吸引你的注意力，如果真正要建立第二大脑的话，建议百度 `PARA` 相关理论，及寻找和建立软件之间的联系，建立一套自己的工作流。</pre>
+</div>
+<div created="20210106095812882" modified="20210106095824900" tags="" title="数据的块存储、文件存储与对象存储 - 0xFFFF" type="text/x-markdown">
+<pre>&gt; 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [0xffff.one](https://0xffff.one/d/547)
+
+最近折腾毕设，比较关注文件存储、传输方面的技术，[更新网站](https://0xffff.one/d/331/34) 的时候也有对接云存储相关的东西。
+
+今天在 GitHub 发现了 [MinIO](https://github.com/minio/minio)，一个兼容 Amazon S3 云存储接口的对象存储开源实现。甚至还可以跑在树莓派上：[Minio on a Raspberry Pi 3 with Raspbian (Debian Jessie 8.0) · christianbaun/ossperf Wiki](https://github.com/christianbaun/ossperf/wiki/Minio-on-a-Raspberry-Pi-3-with-Raspbian-%28Debian-Jessie-8.0%29)
+
+跑了一下 MinIO 的 Docker 镜像试用了一下，感受到它和我们日常用到的文件系统的一些差异。但我还不太了解它们具体的差别，找了点相关的资料，简单整理概括一下。这里主要讨论上层的抽象，不涉及具体的实现。
+
+### 1. 数据的定义
+
+之前我有整理过 [一篇博文](https://0xffff.one/d/535)，在香农的体系下，计算机最基本的数据单位是 **比特**（bit），为了方便使用，现在的计算机中数据以 **8 位字节流**（octet-stream）的形式来存储、交换和处理。
+
+### 2. 块存储 Block Storage
+
+在块存储中，数据以 block 为单位做抽象，一个 block 对应若干个 Byte，比如说我的电脑硬盘一个 block 是 4096 个字节。
+
+![](https://static.0xffff.one/assets/files/2020-04-12/1586680919-263011-image.png)
+
+有了 block 这个概念抽象，也就与底层硬盘的**扇区**、**页**等具体实现隔离。于是也可以通过类似 [Raid](https://zh.wikipedia.org/wiki/RAID)、[LVM](https://wiki.archlinux.org/index.php/LVM_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29) 等技术做灵活的备份、调整、容错、性能优化等机制。
+
+访问数据流程：`block 地址 -&gt; Block -&gt; 具体数据`
+
+由于 block 每次存取的数据大小是固定的，面对长度不固定的数据并不灵活。我们一般不会直接操作块存储，而要依赖操作系统的文件系统去访问，有的数据库管理系统（DBMS）会直接通过块存储来存储数据。
+
+### 3. 文件存储 File Storage
+
+文件存储主要是依赖操作系统提供的 **文件系统** 的概念来组织数据，这是我们日常接触最多的。
+
+文件系统提供了 **目录** 和 **文件** 这两个概念，用户基于这两个概念的抽象来实现数据的访问，具体背后的实现则由操作系统负责，可能基于块存储、基于网络、基于内存等等等等。
+
+访问数据的流程：`目录 -&gt; ... -&gt; 目录 -&gt; 文件 -&gt; 数据`
+
+`目录 -&gt; 文件` 这个组合我们称为 **路径**（Path）。然后上述流程可以理解为：`路径 -&gt; 文件 -&gt; 数据`
+
+每一个文件还需要有描述对应 **“属性”** 的数据（metadata 元数据）（比如说 **文件名**、修改时间、属性、权限等），文件系统需要指定专门的地方保存它们，频繁读写元数据也是一个开销所在。
+
+这个体系，适合日常大多数情况的数据的存取（比如说我们日常的电脑使用）。在大规模系统应用中存在一个问题：当小文件数目过多，文件系统的组织、元数据读写的开销就成了一个噩梦。
+
+另一个问题是，它的存储机制重度依赖单机硬件，扩容的难度比较大。
+
+### 4. 对象存储 Object Storage
+
+对象存储简单地说，它把一段数据以一个对象（Object）的概念来看待，这个 Object 包括了具体内容的 **字节流**、描述这段数据的特征和权限的**元数据**，还有访问这段数据的 **key**。若干个 Object 的集合归属到一个 **存储桶（Bucket）**。
+
+连接上存储桶后，访问数据的流程：`key -&gt; Object -&gt; 数据`。
+
+在底层足够强大的前提下，一个存储桶理论上可以保存无限个这样的 Object，每个 Object 能保存的数据大小也可以是无限的。在扩容方面具有很大的优势。
+
+云计算的厂商基于此提供存储服务，我们在使用对象存储的时候，虽然说能看到 “文件” 和“目录”的概念。但实际上是大家默认都把文件系统的 `Path` 与对象存储中的 `key` 的概念绑在了一起。这也是为什么对象存储没有 “目录操作” 的概念，所谓 “目录” 的形态，不过是 `key` 里面包含了分隔符 `/`。
+
+在这个领域亚马逊是最早发力（2006 年）的，名字叫 [**Amazon Simple Storage Service**](https://docs.aws.amazon.com/s3/index.html)，简称 **Amazon S3**，国内阿里云比较早做这块，[对应的名字是 OSS](https://cn.aliyun.com/product/oss) （Object Storage Service）。
+
+在接口设计方面，Amazon S3 可以说已经成为了事实标准，绝大部分云存储厂商都会提供 S3 API 的兼容，跟着喝汤。
+
+块存储、文件存储、对象存储三者的大致形态可参考此图（[来源](https://cloudian.com/blog/object-storage-vs-file-storage/)）：  
+![](https://static.0xffff.one/assets/files/2020-04-12/1586684717-391352-image.png)
+
+### 5. 参考
+
+1.  [Minio on a Raspberry Pi 3 with Raspbian (Debian Jessie 8.0) · christianbaun/ossperf Wiki](https://github.com/christianbaun/ossperf/wiki/Minio-on-a-Raspberry-Pi-3-with-Raspbian-%28Debian-Jessie-8.0%29)
+2.  [MinIO Docs | MinIO 快速入门指南](https://docs.min.io/cn/)
+3.  [块存储、文件存储、对象存储这三者的本质差别是什么？ - 知乎](https://www.zhihu.com/question/21536660)
+4.  [Object Storage vs. Block Storage Services | DigitalOcean](https://www.digitalocean.com/community/tutorials/object-storage-vs-block-storage-services)
+5.  [Object Storage vs. File Storage: What's the Difference? | Cloudian](https://cloudian.com/blog/object-storage-vs-file-storage/)
+6.  [设备文件系统 - 维基百科](https://zh.wikipedia.org/wiki/%E8%AE%BE%E5%A4%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F#%E5%9D%97%E8%AE%BE%E5%A4%87)
+7.  [bfs: 支撑 Bilibili 的小文件存储系统 - 简书](https://www.jianshu.com/p/923917220d23)
+8.  [Facebook Haystack 架构的原理是什么？ - 知乎](https://www.zhihu.com/question/20340190)
+9.  [什么是对象存储？ 什么是对象存储元数据？ - 阿里云知识库](https://www.alibabacloud.com/zh/knowledge/what-is-object-storage)
+10.  [Amazon Simple Storage Service Documentation](https://docs.aws.amazon.com/s3/index.html)
+11.  [AWS 数据湖十年，云计算老大哥的磨刀之路 - InfoQ](https://www.infoq.cn/article/0BPZIkj7qgxsT91khHue)
+12.  [公有云对象存储服务体验吐嘈 - Xuanwo's Blog](https://xuanwo.io/2020/03/03/object-storage/)</pre>
 </div>
 <div created="20210106092759857" modified="20210106092825721" tags="TiddlyWiki" title="用 TiddlyWiki 替代 Notion 和 EverNote 作为个人知识管理系统">
 <pre>&gt; 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/140473235)

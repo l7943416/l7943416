@@ -423,6 +423,8 @@ Error message and password prompt
 
 <li>Autocompletion</li>
 
+<li>Bookmarking with TidMarks</li>
+
 <li>CodeMirror</li>
 
 <li>Evernote Import Report</li>
@@ -17101,7 +17103,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div list="[[TaskManagementExample 4]] GettingStarted" title="$:/StoryList">
+<div list="[[Bookmarking with TidMarks]] [[TaskManagementExample 4]] GettingStarted" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17435,6 +17437,51 @@ Note that autocomplete does not work in iOS or other contexts where there is no 
 Go back to viewing mode, click the link you created to the `Dave Gifford` tiddler, and follow the instructions in that tiddler.
 
 When you are done here, return to [[Welcome to Stroll]] to continue the tutorial.</pre>
+</div>
+<div created="20210107092027251" modified="20210107092048302" tags="" title="Bookmarking with TidMarks">
+<pre>\define toc-heading(caption,body)
+&lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button set=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; setTo=&quot;show&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/right-arrow}} $caption$
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button set=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; setTo=&quot;hide&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/down-arrow}} $caption$
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot; retain=&quot;yes&quot; animate=&quot;yes&quot;&gt;
+
+$body$
+
+&lt;/$reveal&gt;
+\end
+
+Welcome to ~TidMarks, a simple way to organize your web bookmarks in ~TiddlyWiki.
+
+&lt;div class=&quot;tw-table-of-contents&quot;&gt;
+
+# &lt;&lt;toc-heading &quot;Download ~TidMarks&quot; &quot;
+# {{ $:/_Download }}
+&quot;&gt;&gt;
+# &lt;&lt;toc-heading &quot;Create bookmarks&quot; &quot;
+# {{ $:/_CreateBookmarks }}
+&quot;&gt;&gt;
+# &lt;&lt;toc-heading &quot;Navigate and retrieve bookmarks&quot; &quot;
+# {{ $:/_NavigateRetrieve }}
+&quot;&gt;&gt;
+# &lt;&lt;toc-heading &quot;Upgrade&quot; &quot;
+# {{ $:/_Upgrade }}
+&quot;&gt;&gt;
+# &lt;&lt;toc-heading &quot;Why no browser extension?&quot; &quot;
+# {{ $:/_Extension }}
+&quot;&gt;&gt;
+# &lt;&lt;toc-heading &quot;Help us out&quot; &quot;
+# {{ $:/_Help }}
+&quot;&gt;&gt;
+
+&lt;/div&gt;
+
+[[All my tags]]&lt;br&gt;
+[[All my indexes]]</pre>
 </div>
 <div created="20210107032902473" modified="20210107032902473" title="CodeMirror">
 <pre></pre>

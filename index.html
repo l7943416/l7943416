@@ -201,6 +201,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal</li>
 
 <li>$:/config/RelinkOnRename</li>
@@ -292,6 +294,8 @@ Error message and password prompt
 <li>$:/plugins/sq/editor-autolist</li>
 
 <li>$:/plugins/sq/Stories</li>
+
+<li>$:/plugins/tiddlywiki/evernote</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
 
@@ -846,6 +850,9 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 </div>
 <div created="20200502172232641" modified="20200808142343789" tags="$:/giffmex/stroll" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>reveal</pre>
+</div>
+<div created="20210107030732400" modified="20210107030732400" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import">
+<pre>show</pre>
 </div>
 <div created="20200504150621926" modified="20200808142345166" tags="$:/giffmex/stroll" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal">
 <pre>show</pre>
@@ -16500,6 +16507,26 @@ exports.context = contextWidget;
 }
 }</pre>
 </div>
+<div dependents="" description="Evernote migration tools" list="readme docs" name="Evernote" plugin-type="plugin" title="$:/plugins/tiddlywiki/evernote" type="application/json" version="5.1.23">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tiddlywiki/evernote/docs&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/evernote/docs&quot;,
+            &quot;text&quot;: &quot;! Introduction\n\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/evernote/modules/enex-deserializer.js&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/evernote/modules/enex-deserializer.js&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tiddlywiki/evernote/modules/enex-deserializer.js\ntype: application/javascript\nmodule-type: tiddlerdeserializer\n\nENEX file deserializer\n\nFor details see: https://blog.evernote.com/tech/2013/08/08/evernote-export-format-enex/\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\n// DOMParser = require(\&quot;$:/plugins/tiddlywiki/xmldom/dom-parser\&quot;).DOMParser;\n\n/*\nParse an ENEX file into tiddlers\n*/\nexports[\&quot;application/enex+xml\&quot;] = function(text,fields) {\n\t// Collect output tiddlers in an array\n\tvar results = [];\n\t// Parse the XML document\n\tvar parser = new DOMParser(),\n\t\tdoc = parser.parseFromString(text,\&quot;application/xml\&quot;);\n\t// Output a report tiddler with information about the import\n\tvar enex = doc.querySelector(\&quot;en-export\&quot;);\n\tresults.push({\n\t\ttitle: \&quot;Evernote Import Report\&quot;,\n\t\ttext: \&quot;Evernote file imported on \&quot; + enex.getAttribute(\&quot;export-date\&quot;) + \&quot; from \&quot; + enex.getAttribute(\&quot;application\&quot;) + \&quot; (\&quot; + enex.getAttribute(\&quot;version\&quot;) + \&quot;)\&quot;\n\t})\n\t// Get all the \&quot;note\&quot; nodes\n\tvar noteNodes = doc.querySelectorAll(\&quot;note\&quot;);\n\t$tw.utils.each(noteNodes,function(noteNode) {\n\t\tvar result = {\n\t\t\ttitle: getTextContent(noteNode,\&quot;title\&quot;),\n\t\t\ttype: \&quot;text/html\&quot;,\n\t\t\ttags: [],\n\t\t\ttext: getTextContent(noteNode,\&quot;content\&quot;),\n\t\t\tmodified: convertDate(getTextContent(noteNode,\&quot;created\&quot;)),\n\t\t\tcreated:  convertDate(getTextContent(noteNode,\&quot;created\&quot;))\n\n\t\t};\n\t\t$tw.utils.each(noteNode.querySelectorAll(\&quot;tag\&quot;),function(tagNode) {\n\t\t\tresult.tags.push(tagNode.textContent);\n\t\t});\n\t\t// If there's an update date, set modifiy date accordingly\n\t\tvar update = getTextContent(noteNode,\&quot;updated\&quot;);\n\t\tif(update) {\n\t\t\tresult.modified = convertDate(update);\n\t\t}\n\t\t$tw.utils.each(noteNode.querySelectorAll(\&quot;note-attributes&gt;*\&quot;),function(attrNode) {\n\t\t\tresult[attrNode.tagName] = attrNode.textContent;\n\t\t});\n\t\tresults.push(result);\n\t\t$tw.utils.each(noteNode.querySelectorAll(\&quot;resource\&quot;),function(resourceNode) {\n\t\t\tresults.push({\n\t\t\t\ttitle: getTextContent(resourceNode,\&quot;resource-attributes&gt;file-name\&quot;),\n\t\t\t\ttype: getTextContent(resourceNode,\&quot;mime\&quot;),\n\t\t\t\twidth: getTextContent(resourceNode,\&quot;width\&quot;),\n\t\t\t\theight: getTextContent(resourceNode,\&quot;height\&quot;),\n\t\t\t\ttext: getTextContent(resourceNode,\&quot;data\&quot;)\n\t\t\t});\n\t\t});\n\t});\n\t// Return the output tiddlers\n\treturn results;\n};\n\nfunction getTextContent(node,selector) {\n\treturn (node.querySelector(selector) || {}).textContent;\n}\n\nfunction convertDate(isoDate) {\n\treturn (isoDate || \&quot;\&quot;).replace(\&quot;T\&quot;,\&quot;\&quot;).replace(\&quot;Z\&quot;,\&quot;\&quot;) + \&quot;000\&quot;\n}\n\n})();\n&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;tiddlerdeserializer&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/evernote/readme&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/evernote/readme&quot;,
+            &quot;text&quot;: &quot;This plugin contains tool to assist migration of content from Evernote ENEX files.\n\n!! Instructions\n\n# Download or save your ENEX file from Evernote\n# Rename the file to have an `.enex` extension\n# Drag the file into the TiddlyWiki browser window\n## Alternatively, click the \&quot;Import\&quot; button in the \&quot;Tools\&quot; sidebar tab\n# Review and accept the converted tiddlers\n&quot;
+        }
+    }
+}</pre>
+</div>
 <div author="Joao Bolila" dependents="" description="Highlight.js syntax highlighting" list="readme usage howto license" name="Highlight" plugin-type="plugin" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.23">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -16841,7 +16868,7 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210107030518615" modified="20210107030518615" title="$:/state/tab/sidebar--595412856">
+<div created="20210107030518615" modified="20210107030726232" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Tools</pre>
 </div>
 <div bag="default" revision="1" title="$:/status/IsAnonymous">

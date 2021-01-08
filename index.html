@@ -17553,20 +17553,21 @@ Welcome to ~TidMarks, a simple way to organize your web bookmarks in ~TiddlyWiki
 <div created="20210107032902473" modified="20210107032902473" title="CodeMirror">
 <pre></pre>
 </div>
-<div created="20210108035830519" modified="20210108035917075" tags="" title="Definitions in WikiText">
+<div created="20210108035830519" modified="20210108035949506" tags="" title="Definitions in WikiText">
 <pre>; Term being defined
 : Definition of that term
 ; Another term
 : Another definition
 -----
-HTML definition lists are created with this syntax:
+That renders as:
 
-&lt;&lt;wikitext-example src:&quot;; Term being defined
-: Definition of that term
-; Another term
-: Another definition
-&quot;&gt;&gt;
-</pre>
+Term being defined
+Definition of that term
+Another term
+Another definition
+... and the underlying HTML is:
+
+&lt;dl&gt;&lt;dt&gt;Term being defined&lt;/dt&gt;&lt;dd&gt;Definition of that term&lt;/dd&gt;&lt;dt&gt;Another term&lt;/dt&gt;&lt;dd&gt;Another definition&lt;/dd&gt;&lt;/dl&gt;</pre>
 </div>
 <div title="Evernote Import Report">
 <pre>Evernote file imported on 20210107T031349Z from Evernote/Windows (6.x)</pre>

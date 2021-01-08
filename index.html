@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>Stroll — A Roam-like experience in a free, downloadable file</title>
+<title>私人笔记 — A Roam-like experience in a free, downloadable file</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -201,11 +201,17 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/_sq/Stories/Templates/StoryTogglePageControl</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/advanced-search</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/tag-manager</li>
 
 <li>$:/config/RelinkOnRename</li>
 
@@ -214,6 +220,8 @@ Error message and password prompt
 <li>$:/config/TextEditor/EnableToolbar</li>
 
 <li>$:/config/Tiddlers/TitleLinks</li>
+
+<li>$:/config/TimestampDisable</li>
 
 <li>$:/config/ui/EditTemplate</li>
 
@@ -466,6 +474,8 @@ Error message and password prompt
 <li>TiddlyDrive Add-on for Google Drive by Joshua Stubbs</li>
 
 <li>TiddlyWiki</li>
+
+<li>TiddlyWiki </li>
 
 <li>TiddlyWiki 是一个工具箱</li>
 
@@ -980,13 +990,22 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div bag="default" created="20200416201744386" modified="20200808142342088" revision="0" tags="$:/giffmex/stroll" title="$:/config/PageControlButtons/Visibility/$:/_sq/Stories/Templates/StoryTogglePageControl" type="text/vnd.tiddlywiki">
 <pre>show</pre>
 </div>
+<div created="20210108033230465" modified="20210108033230465" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/advanced-search">
+<pre>show</pre>
+</div>
+<div created="20210108033232225" modified="20210108033232225" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel">
+<pre>hide</pre>
+</div>
 <div created="20200502172232641" modified="20200808142343789" tags="$:/giffmex/stroll" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>reveal</pre>
 </div>
-<div created="20210107030732400" modified="20210107030732400" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import">
-<pre>show</pre>
+<div created="20210107030732400" modified="20210108033241182" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import">
+<pre>hide</pre>
 </div>
 <div created="20200504150621926" modified="20200808142345166" tags="$:/giffmex/stroll" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal">
+<pre>show</pre>
+</div>
+<div created="20210108033301333" modified="20210108033301333" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/tag-manager">
 <pre>show</pre>
 </div>
 <div bag="default" created="20200106214031452" modified="20200808142338373" revision="0" tags="$:/giffmex/stroll" title="$:/config/RelinkOnRename" type="text/vnd.tiddlywiki">
@@ -999,6 +1018,9 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <pre>yes</pre>
 </div>
 <div bag="default" created="20200414150157768" modified="20200808142341895" revision="0" tags="$:/giffmex/stroll" title="$:/config/Tiddlers/TitleLinks" type="text/vnd.tiddlywiki">
+<pre>no</pre>
+</div>
+<div created="20210108033204194" modified="20210108033206962" title="$:/config/TimestampDisable">
 <pre>no</pre>
 </div>
 <div created="20200418200430409" modified="20200808142342724" tags="$:/giffmex/stroll" title="$:/config/ui/EditTemplate">
@@ -17031,8 +17053,8 @@ exports.context = contextWidget;
 <div created="20200423122624925" modified="20200423134129727" title="$:/SiteSubtitle">
 <pre>A Roam-like experience in a free, downloadable file</pre>
 </div>
-<div bag="default" created="20200414222832782" modified="20200423122621783" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
-<pre>Stroll</pre>
+<div bag="default" created="20200414222832782" modified="20210108033351223" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
+<pre>私人笔记</pre>
 </div>
 <div created="20210107084444893" modified="20210107084444893" title="$:/state/add-plugin-info/$:/temp/ServerConnection/https://flibbles.github.io/tw5-relink/library/index.html/$:/temp/RemoteAssetInfo/https://flibbles.github.io/tw5-relink/library/index.html/$:/plugins/flibbles/relink">
 <pre>yes</pre>
@@ -17115,8 +17137,8 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210107030518615" modified="20210108031523550" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210107030518615" modified="20210108034838440" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -17139,7 +17161,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210108024815476" list="[[Performance Instrumentation]] [[Images in WikiText]] [[Order of Tagged Tiddlers]] [[TiddlyWiki 是一个用户和开发人员的社区]] [[TiddlyWiki 是一种工具]] [[TiddlyWiki 是一个工具箱]] Tagging [[最后，TiddlyWiki 是一种哲学]] TiddlyWiki [[TiddlyDrive Add-on for Google Drive by Joshua Stubbs]]" modified="20210108030429768" title="$:/StoryList">
+<div created="20210108034839337" list="TiddlyWiki [[TiddlyWiki ]]" modified="20210108034846888" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17753,8 +17775,13 @@ I even added an optional ability to save with ctrl + s hotkeys.
 &lt;&lt;&lt; [[Joshua's launch post|https://groups.google.com/d/topic/tiddlywiki/7pNJizR57e8/discussion]]
 </pre>
 </div>
-<div created="20210107032902471" modified="20210108030532141" title="TiddlyWiki">
-<pre>{{TiddlyWiki 是一种工具}}
+<div created="20210107032902471" modified="20210108034954032" title="TiddlyWiki">
+<pre>*TiddlyWiki 是一种工具
+*TiddlyWiki 是一个工具箱
+*TiddlyWiki 是一个用户和开发人员的社区
+*最后，TiddlyWiki 是一种哲学
+-----
+{{TiddlyWiki 是一种工具}}
 -----
 {{TiddlyWiki 是一个工具箱}}
 -----
@@ -17762,6 +17789,9 @@ I even added an optional ability to save with ctrl + s hotkeys.
 -----
 {{最后，TiddlyWiki 是一种哲学}}
 </pre>
+</div>
+<div color="#4d3c9f" created="20210108033310694" modified="20210108033311254" title="TiddlyWiki ">
+<pre></pre>
 </div>
 <div created="20210107093727991" modified="20210108030324126" tags="[[TiddlyWiki ]]" title="TiddlyWiki 是一个工具箱">
 <pre>! TiddlyWiki 是一个工具箱

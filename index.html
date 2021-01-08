@@ -441,7 +441,11 @@ Error message and password prompt
 
 <li>GettingStarted</li>
 
+<li>Images in WikiText</li>
+
 <li>JavaScript</li>
+
+<li>list-tagged-draggable Macro</li>
 
 <li>New Tiddler</li>
 
@@ -466,6 +470,8 @@ Error message and password prompt
 <li>TiddlyWiki 是一个用户和开发人员的社区</li>
 
 <li>TiddlyWiki 是一种工具</li>
+
+<li>Title List</li>
 
 <li>Welcome to Stroll</li>
 
@@ -17107,8 +17113,8 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210107030518615" modified="20210108024806379" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210107030518615" modified="20210108031523550" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -17131,7 +17137,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210108024815476" list="[[Order of Tagged Tiddlers]] [[TiddlyWiki 是一个用户和开发人员的社区]] [[TiddlyWiki 是一种工具]] [[TiddlyWiki 是一个工具箱]] Tagging [[最后，TiddlyWiki 是一种哲学]] TiddlyWiki [[TiddlyDrive Add-on for Google Drive by Joshua Stubbs]]" modified="20210108030429768" title="$:/StoryList">
+<div created="20210108024815476" list="[[Images in WikiText]] [[Order of Tagged Tiddlers]] [[TiddlyWiki 是一个用户和开发人员的社区]] [[TiddlyWiki 是一种工具]] [[TiddlyWiki 是一个工具箱]] Tagging [[最后，TiddlyWiki 是一种哲学]] TiddlyWiki [[TiddlyDrive Add-on for Google Drive by Joshua Stubbs]]" modified="20210108030429768" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17554,7 +17560,71 @@ Before you start storing important information in Stroll, it is vital to make su
 See the [[control panel|$:/ControlPanel]] for more options.
 </pre>
 </div>
+<div created="20210108031556703" modified="20210108031606038" tags="[[TiddlyWiki ]]" title="Images in WikiText">
+<pre>! 图片
+
+显示保存于条目的图片，只需嵌入该条目：
+
+```
+{{Motovun Jack.jpg}}
+[img[https://tiddlywiki.com/favicon.ico]]
+```
+
+您也可以从编辑器工具栏插入图片。点击''图片'' (&lt;&lt;.icon $:/core/images/picture&gt;&gt;) 且选择一个图片。
+
+如果图片来源为图片条目名称，则直接显示条目。否则它被解译为一个 URL 和生成一个 HTML `&lt;img&gt;` 标记包含值为 URL 的 `src` 属性。
+
+可以指定提示消息：
+
+```
+[img[An explanatory tooltip|Motovun Jack.jpg]]
+```
+
+可以提供属性以指定 CSS 类别的图片宽度和高度：
+
+```
+[img width=32 [Motovun Jack.jpg]]
+[img width=32 class=&quot;tc-image&quot; [Motovun Jack.jpg]]
+```
+
+请注意可以将属性指定为嵌入或为变量引用：
+
+```
+[img width={{!!mywidth}} class=&lt;&lt;image-classes&gt;&gt; [Motovun Jack.jpg]]
+```
+
+图片的语法是援引 ImageWidget 的简写形式。
+
+! 嵌入显示图像
+
+您还可以嵌入方式显示存储在条目的图片。这种方法的缺点是没有直接的方法来控制图片的大小。
+
+```
+{{Motovun Jack.jpg}}
+```
+
+显示结果：
+
+{{Motovun Jack.jpg}}
+
+! 图片作为链接
+```
+&lt;$link to=&quot;HelloThere&quot; tooltip=&quot;自定义工具提示&quot;&gt;{{$:/core/icon}}&lt;/$link&gt;
+```
+
+显示结果：
+
+&lt;$link to=&quot;HelloThere&quot; tooltip=&quot;自定义工具提示&quot;&gt;{{$:/core/icon}}&lt;/$link&gt;
+
+! 导入图像
+
+使用 &lt;&lt;.button import&gt;&gt; 按钮 (在侧边栏的 &lt;&lt;.sidebar-tab Tools&gt;&gt; 页签中)，或拖放。
+详见 [[导入条目|Importing Tiddlers]]。</pre>
+</div>
 <div created="20210107032902476" modified="20210107032902476" title="JavaScript">
+<pre></pre>
+</div>
+<div created="20210108031533970" modified="20210108031533970" title="list-tagged-draggable Macro">
 <pre></pre>
 </div>
 <div created="20200808143152856" modified="20200808143154518" tags="" title="New Tiddler">
@@ -17676,6 +17746,9 @@ I even added an optional ability to save with ctrl + s hotkeys.
 TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于从网站、从您的文档或从您的大脑截取和管理内容。它是笔记、书签、便条、写作、管理待办事项清单和项目、协作、博客和出版的工具。
 
 在 TiddlyWiki 您创建或剪贴内容到称为条目的笔记，然后用超链接和标签连接您的条目。可由如标签丸、侧栏页签和 TiddlyWiki 的闪电般快速搜索窗口等功能快速访问您的笔记。您甚至可以动态引入一个条目内容于另一个条目 - 类似使用构建基块 - 创建文章、清单、演示文稿和更多的内容。</pre>
+</div>
+<div created="20210108031533970" modified="20210108031533970" title="Title List">
+<pre></pre>
 </div>
 <div created="20210107032157548" modified="20210107032706249" title="Welcome to Stroll">
 <pre>[[test]]</pre>

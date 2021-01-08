@@ -447,6 +447,8 @@ Error message and password prompt
 
 <li>Notion</li>
 
+<li>Order of Tagged Tiddlers</li>
+
 <li>Tagging</li>
 
 <li>TaskManagementExample 4</li>
@@ -17129,7 +17131,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210108024815476" list="[[TiddlyWiki 是一个用户和开发人员的社区]] [[TiddlyWiki 是一种工具]] [[TiddlyWiki 是一个工具箱]] Tagging [[最后，TiddlyWiki 是一种哲学]] TiddlyWiki [[TiddlyDrive Add-on for Google Drive by Joshua Stubbs]]" modified="20210108030429768" title="$:/StoryList">
+<div created="20210108024815476" list="[[Order of Tagged Tiddlers]] [[TiddlyWiki 是一个用户和开发人员的社区]] [[TiddlyWiki 是一种工具]] [[TiddlyWiki 是一个工具箱]] Tagging [[最后，TiddlyWiki 是一种哲学]] TiddlyWiki [[TiddlyDrive Add-on for Google Drive by Joshua Stubbs]]" modified="20210108030429768" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17560,6 +17562,21 @@ See the [[control panel|$:/ControlPanel]] for more options.
 </div>
 <div created="20210107085053352" modified="20210107085055893" tags="" title="Notion">
 <pre></pre>
+</div>
+<div created="20210108031506858" modified="20210108031513168" tags="" title="Order of Tagged Tiddlers">
+<pre>当 ~TiddlyWiki 生成具有特定标签的条目的清单 (例如，标签丸的下拉清单)，其排序条目依循下列规则：
+
+# 始于标签条目的 &lt;&lt;.field list&gt;&gt; 字段中[[声明|Title List]]的给定顺序。
+
+# 在其余每个条目 &lt;&lt;.place T&gt;&gt;，寻找 &lt;&lt;.field list-before&gt;&gt; 字段，如果此字段有一条目名称作为其值，则置此如果此字段有一条目名称作为其值，则置此 &lt;&lt;.place T&gt;&gt; 于该条目之&lt;&lt;.em 前&gt;&gt;。
+#* 一个特殊情况，如果该字段存在，但其值为空，则置 &lt;&lt;.place T&gt;&gt; 于清单的起始处。
+
+# 在其余每个条目 &lt;&lt;.place T&gt;&gt;，寻找 &lt;&lt;.field list-after&gt;&gt; 字段，如果此字段有一条目名称作为其值，则置此如果此字段有一条目名称作为其值，则置此 &lt;&lt;.place T&gt;&gt; 于该条目之&lt;&lt;.em 后&gt;&gt;。
+
+# 如果仍有其他条目，则将其放在依字母顺序升幂排序的名称清单的末尾。将忽略大写字母和小写字母的区别。
+
+具有特定标签的条目的排序，可以在标签丸下拉清单中使用拖放直接修改。底层的 [[list-tagged-draggable 宏|list-tagged-draggable Macro]]也可以用在别处。
+</pre>
 </div>
 <div created="20210108022533327" modified="20210108022551415" tags="[[TiddlyWiki ]]" title="Tagging">
 <pre>设置标签是一种为条目分类的方法。例如，如果您有代表不同个体的条目，您可以标记他们为''朋友''、''家庭''、''同事''等，表明这些人与您之间的关系。

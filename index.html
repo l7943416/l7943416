@@ -271,8 +271,6 @@ Error message and password prompt
 
 <li>$:/GitHub/Username</li>
 
-<li>$:/Import</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/language</li>
@@ -445,6 +443,8 @@ Error message and password prompt
 
 <li>Autocompletion</li>
 
+<li>AutoHotkey</li>
+
 <li>Bookmarking with TidMarks</li>
 
 <li>CodeMirror</li>
@@ -454,6 +454,8 @@ Error message and password prompt
 <li>Definitions in WikiText</li>
 
 <li>Evernote Import Report</li>
+
+<li>FileLocator</li>
 
 <li>GettingStarted</li>
 
@@ -479,9 +481,15 @@ Error message and password prompt
 
 <li>Notion</li>
 
+<li>Obsidian</li>
+
 <li>Order of Tagged Tiddlers</li>
 
 <li>Performance Instrumentation</li>
+
+<li>PotPlayer</li>
+
+<li>RoamResearch</li>
 
 <li>Tagging</li>
 
@@ -11100,13 +11108,6 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210107030214150" modified="20210107030214150" title="$:/GitHub/Username">
 <pre>l7943416</pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>下列条目已被导入：
-
-# [[Untitled]]
-# [[Evernote Import Report]]
-# [[巧用 Obsidian 把 “思维导图” 变成“双向链思维导图”]]</pre>
-</div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -17163,8 +17164,8 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210107030518615" modified="20210108083532319" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210107030518615" modified="20210108083852457" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -17187,7 +17188,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210108052600034" list="[[巧用 Obsidian 把 “思维导图” 变成“双向链思维导图”]] [[Hard Linebreaks in WikiText]] HelloThere WikiText $:/ControlPanel GettingStarted" modified="20210108083429989" title="$:/StoryList">
+<div created="20210108052600034" list="$:/Import Obsidian [[使用 TiddlyWiki 进行个人知识管理]] [[巧用 Obsidian 把 “思维导图” 变成“双向链思维导图”]] [[Hard Linebreaks in WikiText]] HelloThere WikiText $:/ControlPanel GettingStarted" modified="20210108083856177" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17686,6 +17687,9 @@ Go back to viewing mode, click the link you created to the `Dave Gifford` tiddle
 
 When you are done here, return to [[Welcome to Stroll]] to continue the tutorial.</pre>
 </div>
+<div created="20210108083847150" modified="20210108083847150" title="AutoHotkey">
+<pre></pre>
+</div>
 <div created="20210107092027251" modified="20210107092048302" tags="" title="Bookmarking with TidMarks">
 <pre>\define toc-heading(caption,body)
 &lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;qualify &quot;$:/state/toc/$caption$&quot;&gt;&gt; text=&quot;show&quot;&gt;
@@ -17757,6 +17761,9 @@ Another definition
 </div>
 <div title="Evernote Import Report">
 <pre>Evernote file imported on 20210108T083350Z from Evernote/Windows (6.x)</pre>
+</div>
+<div created="20210108083847149" modified="20210108083847149" title="FileLocator">
+<pre></pre>
 </div>
 <div created="20200507132053126" modified="20210108051300663" title="GettingStarted">
 <pre>\define lingo-base() $:/language/ControlPanel/Basics/
@@ -18002,6 +18009,135 @@ And here is the second of several paragraphs.
 <div created="20210107085053352" modified="20210107085055893" tags="" title="Notion">
 <pre></pre>
 </div>
+<div created="20210108084437637" modified="20210108084521345" tags="Obsidian" title="Obsidian">
+<pre>!Obsidian
+
+初识
+--
+
+2020-12-15 更新：[中文论坛（Github Discussion）](https://link.zhihu.com/?target=https%3A//github.com/obsidianzh/forum/discussions)
+
+在今年 Roam Research 凭借异于其它笔记软件的理念以及一众笔记爱好者的大力举荐在笔记软件届横空出世，而一众笔记爱好者在提到《How to Take Smart Notes》中所述的卡片盒笔记法（Zettelkasten）的联系概念时，总是将 Roam Research 看作是实践这种方法的一个极好工具；随后相似理念的新型在线服务不断涌出，老牌服务也逐渐在更新中加上了**双向链接**这个有趣的功能。
+
+但是我因为网络以及其它特殊原因而无法接受在线笔记服务，所以只能看着 Roam Research 在知识管理者以及笔记爱好者手中不断地被倒腾以及展示它的优越能力，心生羡慕。
+
+直到今年六月初，事情发生了点变化，我偶然在 [Hacker News](https://link.zhihu.com/?target=https%3A//news.ycombinator.com/news) 上发现了 Obsidian，那时候 Obsidian 只是一个相对简陋的带双向链接的本地笔记软件，但是在我看到了那时候开发者的发言，以及了解了一下开发者来历后，我认为可以在 Obsidian 上投入时间以及精力，并且趁软件还比较纯粹（简陋），可以及时适应软件所带来的笔记方法上的变化。
+
+![](https://pic4.zhimg.com/v2-a7a2d7c1c05b499b9cce3b8439120a5f_r.jpg)
+
+学习
+--
+
+在使用 Obsidian 的过程中，伴随着它的成长，我对它的依赖也逐渐加深，对于我来说，它几次重大的功能变化分别是（按照优先度排列）：
+
+*   **URI**
+
+应用程序接口，即 Obsidian 支持 `obsidian://` 定向链接，可以直接利用超链接跳转到 Obsidian 中的特定笔记
+
+*   块引用
+
+即可以在 Obsidian 内将某一个段落与另一个段落链接，或在某个文档中插入另一个段落，而且修改引用的原文中该段落时，会所嵌入或所连接的内容会变化。
+
+*   文件相关图谱
+
+即与当前文件所连接的图谱展示
+
+*   图谱筛选
+
+即对图谱中的节点所含的内容进行检索筛选
+
+*   搜索内容复制
+
+即 Obsidian 支持搜索结果的对应文件名批量复制
+
+URI
+---
+
+在 URI 功能更新后，我发现它可以通过在 pdf 特定语句直接添加链接，从而跳转到相对应的笔记处，对于我这种 pdf 狂热者来说，给了我不需要依赖 pdf 的笔记功能的机会，而且又让我不需要等待 Obsidian 的 pdf 功能发展起来（虽然我认为 Obsidian 只要做好笔记软件的工作就好，专人做专事）；而开发者在开发 URI 功能时给后续的功能拓展留下了伏笔，随着 Obsidian 的 0.9.5 版本中对块引用的更新支持后，兴许后续能直接通过 URL 连接到具体文章中的具体内容，未来可期。
+
+此外，某些思维导图软件也支持快速添加超链接，所以当需要整理或者展示自己的知识库的时候，我往往会考虑要不要用上思维导图来辅助（虽然目前为止都还没有试过）
+
+在 Obsidian 的功能更新的期间，为了让自己适应图谱给自己笔记习惯带来的变化，我开始重度使用 Obsidian 的图谱功能来快速查看以及筛选自己的笔记；而这也取得很不错的效果，我再也没有一个笔记是属于孤立的笔记，即每个笔记之间与其它至少一个笔记联系了起来。
+
+而后我开始研究如何将笔记之间的联系程度以及相关程度再进一步提升，而且能够更直观地表示出笔记与笔记之间的联系，然后我在 Obsidian 论坛上闲逛的时候，发现了——
+
+MOC
+---
+
+当你有内容需要与相似的内容做目录的时候，你一般会选择 TOC (Table Of Content) 来对内容进行排列以及概括；而 MOC 的原意是 Map Of Content， 即可以理解成内容地图，如下就是一个内容地图形式：
+
+&gt; 在 [[白切鸡]] 的做法中，突出了用冰水浸泡熟鸡的步骤，可以使得皮更加富有弹性；相似地，之前在看 [[宝塔肉]] 的制作视频时，视频里也提到了可以先将肉冰镇后再进行切片。（其中 [[]] 表示的是与其它文档、大纲或具体段落具体链接）  
+
+即利用文字将笔记与笔记之间暂时联系起来，而这个在尚未有成型的整个知识库之间尤为有用——因为笔记的建立往往是零散的，我**并不喜欢**一开始就先按照 123 的步骤列好每一步要记多少笔记或者每一步需要做点什么，所以在此之前，我都是只是看到哪在相对应的地方打个标记或者加个笔记框，显然这并不是一种高效的方式，高亮的内容以及笔记的内容后续都需要再次整理。
+
+MOC 的方法（如果算得上方法的话），旨在让我先开始记笔记，所以我刚见到这个方法，就被当时写这个方法的人的思考折服，这是一个用双向链接功能的方法**特解**；利用 MOC 的做法，将笔记之间暂时通过文字联系起来，当笔记量足够大到可以开始用 TOC 来概括时，那时候就可以整理成章，当需要对某个领域进行从零开始的挖掘的时候，这种方法显得尤为有用。
+
+利用 Obsidian 的双向链接以及图谱筛选，不断地将自己地笔记往外扩展以及与其它笔记相连，还是很方便的了。
+
+但是如何组织笔记已经有了思路后，我又开始琢磨如何将笔记写得更好，自己愿意回去看，也是在同一个论坛上，我发现了两个重要理念：Evergreen 和 Atomic。
+
+Evergreen&amp;Atomic
+----------------
+
+即常绿与原子化，Evergreen 笔记指的是单条笔记会随着时间的推移不断更新；而 Atomic 指的是 Evergreen 笔记应当保持最小概念化，例如，单个术语的解释、一次事件的描述以及一个生活道理的体悟。
+
+Evergreen 笔记并非是指你将笔记以及所思所想连接后的长篇大论，仅仅是为了保证你后续在查看笔记的时候不会因为笔记过于老旧而觉得无用（尤其是对一个生活道理的体悟是随着时间变化的）。而利用 Atomic 理念，你的笔记与笔记之间的联系会变得异常简单，因为你不需要再考虑需要引用一篇长文中的哪个部分，而是考虑你是引用一篇很短的笔记的全部抑或是单纯的句子或者词汇（这跟 Niklas Luhmann 提出的卡片盒笔记法中的最小化笔记有不谋而合之处）
+
+在发现这对我无比新鲜的理念后，我在 Obsidian 中执行了类似的理念，并且逐渐发现自己的笔记与写作不再是串联起来，而是并联成了一个互相引用的关系；我的文章的观点基于我的笔记，而我的笔记足够细小，供得起自己文章的随意引用，而且不需要思考太多，因为一般一个笔记只会保留一个或者寥寥几个相关的知识点；而且由于 Obsidian 依旧是以文件为最小载体，所以实践起来反而更有一种卡片的感觉。当我将笔记都根据默认的模板修改后，我的笔记系统也逐渐成型了（或者说成系统化了）。
+
+但新的问题总是在来的路上，当我开始熟练使用这个笔记系统后，我该如何保持以前那种喜欢裁剪收藏的爱好呢，我回顾那么多年来看过的一众知识管理概念，发现了——
+
+Inbox
+-----
+
+即收集箱，这个本来是更广泛地应用在 GTD 中，且深受时间管理者的喜爱。当你脑子突然想到要去做某件事，但是你现在需要做另一件事——将事务暂时搁置且放入收集箱，后边在处理；在我看来，这和我之前喜欢裁剪的这件事其实观念上是不谋而合的（当然你也可以认为这是稍后阅读的方法）。这种方法暂时解放了自己的大脑，当我需要裁剪笔记，而且希望后续处理的时候，只要用上时间戳作为文章内容，后续就可以轻易用 Obsidian 现阶段支持的**搜索内容复制**的功能，直接将自己一段时间内以及特定方向的笔记全部拿出来，并且组合成一个新的待办事项清单。
+
+这种方式几乎完美解决了我裁剪需求，但是还是有一点问题还没有解决，那就是如何保证自己回顾的效果——
+
+Anki
+----
+
+2020-12-09 更新：
+
+**Obsidian 的插件市场中已经有连通 ANKI 的插件了。**
+
+几乎是在间隔复习类型软件中最流行的一个软件，我曾经在考虑如何在 Windows 下找到合适的既记笔记，又能让我间隔复习的方法；在找到 Anki with Obsidian 技巧之前，我还在犹豫要不要去使用 RemNote（另一款 Roam-Like 在线服务，但是完美融合了间隔复习的功能）；但是偶然有一天，我又在论坛上闲逛的时候发现了这样一个脚本：[Obsidian To Anki](https://link.zhihu.com/?target=https%3A//github.com/Pseudonium/Obsidian_to_Anki)。利用了 obsidian 是基于本地文件的优势，通过在文章中插入特定的标识符，实现利用脚本转换成 Anki 卡片的需求。
+
+但是这还不足够，因为我希望的是利用 Anki 给我的笔记进行排期，而非真的需要在 Anki 中复习我的笔记；然后在我的说服下，脚本开发者添加了 Anki 卡片链接到 Obsidian 的功能，即卡片中的相关链接处会有一个用于跳转的超链接，利用的则是上文说到的 URI 功能；在此之后，我的流程转换成了：
+
+&gt; pdf ⇋ obsidian ⇋ Anki  
+
+完美覆盖了我所有的需求面，但是如何将这套笔记系统或者说工作流和我自己的职业整合起来呢？
+
+工作
+--
+
+当我想要将自己的笔记系统和自己的工作联系起来的时候，我发现这真的是异常困难；因为职业特殊性，我经常需要撰写严肃文章——由于文章的特殊性，我每次都只需要一次成文，而且不需要另外再思考有没有相类似的内容，卡片写作法（笔记法的衍生）在我身上失去了神奇的作用；一时间，笔记系统陷入了只能记，不能用的困境。
+
+但是在我发现了 URI 功能以及标题级别块链接的功能后，事情再次发生了改变，我发现我可以利用之前撰写的严肃文章的**复读以及重温**来提高后续工作过程中，我所写的文章以及宣讲内容的质量，即不再强求于在 obsidian 上运用卡片法来写作，**而是专注于笔记这个过程**。
+
+现在，我每次写完的文章出现了问题或者得到相关的赞扬后，我就会将其存档，且在里面新增一个链接到 obsidian 笔记的超链接，且在对应的笔记中加上链接到这个文档的 FILE 命令（同样可以链接到文档），相互软件间的超链接增强了我对我以往所写过的严肃文章的复盘效果——好在哪，不好在哪，有没有什么总结以及想法；同时摆脱了多次重复犯错的痛苦。
+
+现在我是无比赞同这个观点：obsidian 将笔记之间互相连接，是一次复习行为，类似于不定期的间隔复习。从我将对我撰写的严肃文章开始复盘到目前为止，这种利用自己的工作而产生的内容越来越具有自己的条理性，也越来越能快速地找到问题所在。
+
+生活
+--
+
+本来我很不喜欢记日记，但是在发现 Obsidian 的日记（Daily Note）功能后，我开始用 Daily Note 的方式给自己每日的事项进行排程，同时将上文中提到的收集箱的内容放入到 Daily Note 中，然后用删除线将相关的笔记删除；将每天的精力集中在自己所熟知的领域以及 DailyNote 上即可。
+
+总结
+--
+
+作为一个已经完全全力投入使用四个月的用户来说，我看着 obsidian 的功能不断增多，从一开始只有双向链接的简陋到现在加上块引用，开发者以及社区都给我提供了很多新的见解以及支持，而我也终于借着这个笔记软件，将自己以前记笔记就再也不回去看的问题，逐渐给解决掉了；相信再继续深度使用它一年后，我应当会更加熟练地掌握笔记这回事，而且往着成为知识管理者继续努力。
+
+![](https://pic1.zhimg.com/v2-4950d913f252e54280aef3f24234cac8_r.jpg)
+
+Refer
+-----
+
+*   [LYT kit](https://link.zhihu.com/?target=https%3A//forum.obsidian.md/t/lyt-kit-now-downloadable)
+*   [Obsidian to Anki](https://link.zhihu.com/?target=https%3A//forum.obsidian.md/t/obsidian-to-anki-v2-9-a-feature-rich-script-that-allows-you-to-add-notes-from-obsidian-to-anki)</pre>
+</div>
 <div created="20210108031506858" modified="20210108031513168" tags="" title="Order of Tagged Tiddlers">
 <pre>当 ~TiddlyWiki 生成具有特定标签的条目的清单 (例如，标签丸的下拉清单)，其排序条目依循下列规则：
 
@@ -18049,6 +18185,12 @@ tw.perf.log()
 * ''totalTime'' - 自启动以来评估此筛选器所花费的总时间 (以毫秒为单位)
 * ''percentTime'' - 此筛选器的运行时间与所有筛选器的总运行时间的百分比
 </pre>
+</div>
+<div created="20210108083847150" modified="20210108083847150" title="PotPlayer">
+<pre></pre>
+</div>
+<div created="20210108083847148" modified="20210108083847148" title="RoamResearch">
+<pre></pre>
 </div>
 <div created="20210108022533327" modified="20210108022551415" tags="[[TiddlyWiki ]]" title="Tagging">
 <pre>设置标签是一种为条目分类的方法。例如，如果您有代表不同个体的条目，您可以标记他们为''朋友''、''家庭''、''同事''等，表明这些人与您之间的关系。

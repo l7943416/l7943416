@@ -527,6 +527,8 @@ Error message and password prompt
 
 <li>HelloThere</li>
 
+<li>HTML Formatting</li>
+
 <li>Images in WikiText</li>
 
 <li>ImageWidget</li>
@@ -18002,7 +18004,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210113091741758" list="test todo" modified="20210113091741758" title="$:/StoryList">
+<div created="20210113091741758" list="[[HTML Formatting]] test todo" modified="20210113091741758" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -19929,6 +19931,30 @@ apart from this one
 <div created="20210108045407347" modified="20210108045407347" title="HelloThere">
 <pre></pre>
 </div>
+<div created="20210113091828376" modified="20210113091838358" tags="[[TiddlyWiki ]]" title="HTML Formatting">
+<pre>!Summary
+TiddlyWiki provides support for rendering pure HTML markup. To do this, simply wrap your HTML code in {{{&lt;html&gt;your html markup goes here&lt;/html&gt;}}}. This way you are able to use embed code using iFrames often suggested by popular media sites like ~YouTube.
+!!&quot;&quot;&quot;Embedded HTML&quot;&quot;&quot;
+{{{
+&lt;html&gt;
+&lt;span style=&quot;padding-right:30px;font-size:2em;&quot;&gt;any&lt;/span&gt;&lt;br /&gt;
+&lt;b&gt;valid&lt;/b&gt; &lt;em&gt;xhtml&lt;/em&gt;
+&lt;/html&gt;
+}}}
+&lt;html&gt;&lt;span style=&quot;padding-right:30px;font-size:2em;&quot;&gt;any&lt;/span&gt;&lt;br /&gt;&lt;b&gt;valid&lt;/b&gt; &lt;em&gt;xhtml&lt;/em&gt;&lt;/html&gt;
+!!&quot;&quot;&quot;Embedded iFrame&quot;&quot;&quot;
+{{{
+&lt;html&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/Cj6ho1-G6tw&quot;
+  width=&quot;450&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen/&gt;
+&lt;/html&gt;
+}}}
+&lt;html&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/Cj6ho1-G6tw?vq=hd720&amp;iv_load_policy=3&quot;
+  width=&quot;450&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen/&gt;
+&lt;/html&gt;
+</pre>
+</div>
 <div created="20210108031556703" modified="20210108031606038" tags="[[TiddlyWiki ]]" title="Images in WikiText">
 <pre>! 图片
 
@@ -20524,10 +20550,10 @@ tw.perf.log()
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20210111072109167" modified="20210113091746295" tags="" title="test">
+<div created="20210111072109167" modified="20210113091807181" tags="" title="test">
 <pre>&lt;html&gt;
-&lt;iframe src=&quot;https://www.youtube.com/embed/Cj6ho1-G6tw&quot;
-  width=&quot;450&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen/&gt;
+&lt;span style=&quot;padding-right:30px;font-size:2em;&quot;&gt;any&lt;/span&gt;&lt;br /&gt;
+&lt;b&gt;valid&lt;/b&gt; &lt;em&gt;xhtml&lt;/em&gt;
 &lt;/html&gt;</pre>
 </div>
 <div created="20210107032902477" modified="20210107032902477" title="TiddlyBlink">

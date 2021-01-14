@@ -523,6 +523,8 @@ Error message and password prompt
 
 <li>Fleeting Notes 临时笔记</li>
 
+<li>Formatting in WikiText</li>
+
 <li>GettingStarted</li>
 
 <li>GitHub</li>
@@ -17370,7 +17372,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210114031504395" list="WikiText中的硬换行符 [[HTML Formatting]] 列出标签的写法 test ListWidget todo" modified="20210114033257044" title="$:/StoryList">
+<div created="20210114031504395" list="[[Formatting in WikiText]] WikiText中的硬换行符 [[HTML Formatting]] 列出标签的写法 test ListWidget todo" modified="20210114033257044" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -19315,6 +19317,20 @@ Another definition
 
 临时笔记。Fleeting 是短暂的， 飞逝的意思， 恰好准确地定义了这种笔记的特性。 这类笔记保存于我们的“收件箱”。可以记录任何想到的事情，各种灵光一现的想法，是所有笔记的起始点。“短暂”的意思就是在这里存放的笔记是临时的，必须定时整理到下一个卡片盒中。“定时整理”是很重要的一件事，我对收件箱的定义就是“一个必须每天清空的地方”。如果不去及时整理，那么很容易就积累起来，成为一大堆笔记之后，我们就没有那个心气儿去整理了。这就像我以前使用稍后读应用一样，如果不坚持每天阅读，很快那个未读数量就会变成1K+，这时候，我最喜欢的功能就是“全部标记为已读”了。</pre>
 </div>
+<div created="20210114034015227" modified="20210114034039769" tags="[[TiddlyWiki ]]" title="Formatting in WikiText">
+<pre>Available character formatting includes:
+
+* &lt;code&gt;&amp;#96;backticks&amp;#96;&lt;/code&gt; for `code` (&lt;&lt;.icon $:/core/images/mono-line&gt;&gt;)
+** Alternatively, &lt;code&gt;&amp;#96;&amp;#96;double backticks allows &amp;#96;embedded&amp;#96; backticks&amp;#96;&amp;#96;&lt;/code&gt;
+* `''bold''` for ''bold text'' (&lt;&lt;.icon $:/core/images/bold&gt;&gt;)
+* `//italic//` for //italic text// (&lt;&lt;.icon $:/core/images/italic&gt;&gt;)
+* `__underscore__` for __underscored text__ (&lt;&lt;.icon $:/core/images/underline&gt;&gt;)
+* `^^superscript^^` for ^^superscripted^^ text (&lt;&lt;.icon $:/core/images/superscript&gt;&gt;)
+* `,,subscript,,` for ,,subscripted,, text (&lt;&lt;.icon $:/core/images/subscript&gt;&gt;)
+* `~~strikethrough~~` for ~~strikethrough~~ text (&lt;&lt;.icon $:/core/images/strikethrough&gt;&gt;)
+
+</pre>
+</div>
 <div created="20200507132053126" modified="20210108051300663" title="GettingStarted">
 <pre>\define lingo-base() $:/language/ControlPanel/Basics/
 Welcome to ''Stroll'' and the ~TiddlyWiki community!
@@ -20249,14 +20265,26 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <div created="20210108045407345" modified="20210108045407345" title="WikiText">
 <pre></pre>
 </div>
-<div created="20210114033313526" modified="20210114033634815" tags="[[TiddlyWiki ]]" title="WikiText中的硬换行符">
-<pre>&quot;&quot;&quot;
+<div created="20210114033313526" modified="20210114033651614" tags="[[TiddlyWiki ]]" title="WikiText中的硬换行符">
+<pre>
+```
+&quot;&quot;&quot;
 This is a line
 and this is a new line
 while this is yet another line
 and this is the final one
 apart from this one
-&quot;&quot;&quot;</pre>
+&quot;&quot;&quot;
+```
+
+&quot;&quot;&quot;
+This is a line
+and this is a new line
+while this is yet another line
+and this is the final one
+apart from this one
+&quot;&quot;&quot;
+</pre>
 </div>
 
 

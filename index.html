@@ -20066,15 +20066,15 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <div created="20210108031533970" modified="20210108031533970" title="Title List">
 <pre></pre>
 </div>
-<div created="20210113085408001" modified="20210114022829063" tags="" title="todo">
-<pre>! 待完成的任务清单
-//Drag the tasks to re-order them//
+<div created="20210113085408001" modified="20210114023215295" tags="" title="todo">
+<pre>! 进行中
+//待完成的任务清单//
 
-&lt;&lt;list-tagged-draggable tag:&quot;task&quot; subFilter:&quot;!has[draft.of]!tag[done]&quot; itemTemplate:&quot;TaskManagementExampleDraggableTemplate&quot; emptyMessage:&quot;You don't have any active tasks&quot;&gt;&gt;
+&lt;&lt;list-tagged-draggable tag:&quot;task&quot; subFilter:&quot;!has[draft.of]!tag[done]&quot; itemTemplate:&quot;TaskManagementExampleDraggableTemplate&quot; emptyMessage:&quot;你没有待处理的任务&quot;&gt;&gt;
 
-! 已完成的任务清单
+! 已结束
 
-//(Listed in reverse order of completion)//
+//(已完成的任务清单)//
 
 &lt;$list filter=&quot;[!has[draft.of]tag[task]tag[done]sort[created]]&quot;&gt;
 &lt;div&gt;

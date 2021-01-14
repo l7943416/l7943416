@@ -637,6 +637,8 @@ Error message and password prompt
 
 <li>Trilium</li>
 
+<li>Troubleshooting-stroll</li>
+
 <li>Untitled</li>
 
 <li>Untitled 1</li>
@@ -17379,8 +17381,8 @@ exports.context = contextWidget;
 <div created="20210107031309817" modified="20210107031309817" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/evernote">
 <pre>yes</pre>
 </div>
-<div created="20210109073058745" modified="20210114051539710" title="$:/state/search/currentTab">
-<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
+<div created="20210109073058745" modified="20210114082355340" title="$:/state/search/currentTab">
+<pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
 <div created="20210107070202210" modified="20210107071102829" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -17397,8 +17399,8 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210109073058746" modified="20210114051539710" title="$:/state/tab/search-results/sidebar">
-<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
+<div created="20210109073058746" modified="20210114082355340" title="$:/state/tab/search-results/sidebar">
+<pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
 <div created="20210107030518615" modified="20210114082242540" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
@@ -17424,7 +17426,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210114082243364" list="Logseq：开源优雅的知识管理工具 todo todo20210113 todo20210114" modified="20210114082243364" title="$:/StoryList">
+<div created="20210114082243364" list="Troubleshooting-stroll Logseq：开源优雅的知识管理工具 todo todo20210113 todo20210114" modified="20210114082243364" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -19903,7 +19905,7 @@ The optional `history` attribute specifies the name of a tiddler that is used to
 # 笔记要保持简短，需要做笔记的内容则要精心选择，不要做那种好像要把整本书都抄下来一样的笔记，择其精要而不是遍地开花。更重要的是，使用自己的语言进行转述。
 # 将这些笔记和参考的文献保存在同一个地方，比如放在你的文献管理系统里。</pre>
 </div>
-<div created="20210108100719632" modified="20210114082256228" tags="" title="Logseq：开源优雅的知识管理工具" type="text/x-markdown">
+<div created="20210108100719632" modified="20210114082328559" tags="" title="Logseq：开源优雅的知识管理工具" type="text/x-markdown">
 <pre>
 题图
 
@@ -19916,7 +19918,7 @@ The optional `history` attribute specifies the name of a tiddler that is used to
 
 但是对于我来说，这就意味着我将要腾出一只手握住鼠标，在需要时调整格式。这其实会降低笔记的效率，因为这种模式下，你不仅仅要关注笔记的内容，而且需时不时地分心调整格式。这与我追求高效的笔记体验背道而驰。
 
-除此以外，在富文本模式下，公式的输入非常繁琐，这也是我最终放弃印象笔记的原因之一。
+除此以外，在[[富文本模式]]下，公式的输入非常繁琐，这也是我最终放弃印象笔记的原因之一。
 
 虽然，印象笔记在 18 年开始支持 [[Markdown]]，但其编辑、预览双屏的设计，对于追求简洁的我太过复杂，也就没有再拾起。
 
@@ -20490,6 +20492,22 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 </div>
 <div created="20210113081152755" modified="20210113081155027" tags="" title="Trilium">
 <pre></pre>
+</div>
+<div created="20210114082417627" modified="20210114082432049" tags="" title="Troubleshooting-stroll">
+<pre>
+!Markdown
+
+''I have the markdown plugin, but autocompletion for linking doesn't work in my Markdown tiddlers!''
+
+&lt;span class=&quot;indent1&quot;&gt;
+
+The autocompletion of links with double brackets `[[link]]` is controlled by the comptext plugin. Users of Markdown have noticed that they can't use the autocomplete in their Markdown tiddlers. To make autocompletion compatible with formatting in Markdown tiddlers, create a tiddler with the title `$:/config/EditorTypeMappings/text/x-markdown` and put this in the text field: `comptext`
+
+Then, to enable the `[[]]` format for a link, open the following shadow tiddler: $:/config/markdown/renderWikiTextPragma and replace the text with: `\rules only html image macrocallinline syslink transcludeinline wikilink filteredtranscludeblock macrocallblock transcludeblock prettylink`
+
+&lt;/span&gt;
+
+</pre>
 </div>
 <div title="Untitled">
 <pre>新条目 4</pre>

@@ -17336,8 +17336,8 @@ exports.context = contextWidget;
 <div created="20210109073058746" modified="20210113074506777" title="$:/state/tab/search-results/sidebar">
 <pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
-<div created="20210107030518615" modified="20210113095940808" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210107030518615" modified="20210114022726199" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -20066,8 +20066,21 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <div created="20210108031533970" modified="20210108031533970" title="Title List">
 <pre></pre>
 </div>
-<div created="20210113085408001" modified="20210113085412591" tags="" title="todo">
-<pre></pre>
+<div created="20210113085408001" modified="20210114022737249" tags="" title="todo">
+<pre>
+//Drag the tasks to re-order them//
+
+&lt;&lt;list-tagged-draggable tag:&quot;task&quot; subFilter:&quot;!has[draft.of]!tag[done]&quot; itemTemplate:&quot;TaskManagementExampleDraggableTemplate&quot; emptyMessage:&quot;You don't have any active tasks&quot;&gt;&gt;
+
+! Completed tasks
+
+//(Listed in reverse order of completion)//
+
+&lt;$list filter=&quot;[!has[draft.of]tag[task]tag[done]sort[created]]&quot;&gt;
+&lt;div&gt;
+&lt;$checkbox tag=&quot;done&quot;&gt; ~~&lt;$link/&gt;~~&lt;/$checkbox&gt;
+&lt;/div&gt;
+&lt;/$list&gt;</pre>
 </div>
 <div created="20210114022221323" modified="20210114022257919" tags="Example done task" title="todo20210113">
 <pre></pre>

@@ -17379,8 +17379,8 @@ exports.context = contextWidget;
 <div created="20210107031309817" modified="20210107031309817" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/evernote">
 <pre>yes</pre>
 </div>
-<div created="20210109073058745" modified="20210114082355340" title="$:/state/search/currentTab">
-<pre>$:/core/ui/DefaultSearchResultList</pre>
+<div created="20210109073058745" modified="20210114082542509" title="$:/state/search/currentTab">
+<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
 </div>
 <div created="20210107070202210" modified="20210107071102829" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -17397,8 +17397,8 @@ exports.context = contextWidget;
 <div created="20210107030146738" modified="20210107030149338" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210109073058746" modified="20210114082355340" title="$:/state/tab/search-results/sidebar">
-<pre>$:/core/ui/DefaultSearchResultList</pre>
+<div created="20210109073058746" modified="20210114082542509" title="$:/state/tab/search-results/sidebar">
+<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
 </div>
 <div created="20210107030518615" modified="20210114082242540" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
@@ -20488,7 +20488,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <div created="20210113081152755" modified="20210113081155027" tags="" title="Trilium">
 <pre></pre>
 </div>
-<div created="20210114082417627" modified="20210114082432049" tags="" title="Troubleshooting-stroll">
+<div created="20210114082417627" modified="20210114082603452" tags="" title="Troubleshooting-stroll">
 <pre>
 !Markdown
 
@@ -20497,6 +20497,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 &lt;span class=&quot;indent1&quot;&gt;
 
 The autocompletion of links with double brackets `[[link]]` is controlled by the comptext plugin. Users of Markdown have noticed that they can't use the autocomplete in their Markdown tiddlers. To make autocompletion compatible with formatting in Markdown tiddlers, create a tiddler with the title `$:/config/EditorTypeMappings/text/x-markdown` and put this in the text field: `comptext`
+$:/config/EditorTypeMappings/text/x-markdown
 
 Then, to enable the `[[]]` format for a link, open the following shadow tiddler: $:/config/markdown/renderWikiTextPragma and replace the text with: `\rules only html image macrocallinline syslink transcludeinline wikilink filteredtranscludeblock macrocallblock transcludeblock prettylink`
 

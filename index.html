@@ -593,6 +593,8 @@ Error message and password prompt
 
 <li>RoamResearch</li>
 
+<li>Setting a favicon</li>
+
 <li>Tagging</li>
 
 <li>task</li>
@@ -17386,8 +17388,8 @@ exports.context = contextWidget;
 <div created="20210109073058746" modified="20210114051539710" title="$:/state/tab/search-results/sidebar">
 <pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
 </div>
-<div created="20210107030518615" modified="20210114041739581" title="$:/state/tab/sidebar--595412856">
-<pre>常用</pre>
+<div created="20210107030518615" modified="20210114051920531" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -17410,7 +17412,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div list="$:/Import [[Draft of '新条目 4']] todo todo20210113 todo20210114" title="$:/StoryList">
+<div list="[[Setting a favicon]] todo todo20210113 todo20210114" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17737,8 +17739,7 @@ exports.context = contextWidget;
 </pre>
 </div>
 <div created="20210114040958086" modified="20210114041330498" tags="$:/tags/SideBar" title="常用">
-<pre>
-&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
 
@@ -18092,7 +18093,6 @@ exports.context = contextWidget;
 </div>
 <div created="20210114031620721" modified="20210114033028903" tags="[[TiddlyWiki ]]" title="列出标签的写法" type="text/vnd.tiddlywiki">
 <pre>
-
 ```
 {{{ [tag[task]] || $:/core/ui/TagTemplate }}}
 
@@ -20248,6 +20248,22 @@ This filter returns the tiddlers specified in the [[$:/StoryList]] tiddler, whic
 <div created="20210108083847148" modified="20210108083847148" title="RoamResearch">
 <pre></pre>
 </div>
+<div created="20210114051932783" modified="20210114051939379" tags="" title="Setting a favicon">
+<pre>&quot;favicons&quot; are small icons that most browsers display to help users identify websites. Note that all browsers support bitmap images, but only certain modern browsers support SVG format icons.
+
+! favicons in the Browser
+
+When TiddlyWiki starts up in the browser it looks for a tiddler called [[$:/favicon.ico]] and dynamically uses it as the favicon for the page. If you modify the image then the favicon changes instantly to reflect it.
+
+&lt;&lt;.from-version &quot;5.1.23&quot;&gt;&gt; To set an external image as the favicon, assign the URL to the ''_canonical_uri'' field of the [[$:/favicon.ico]] tiddler.
+
+! favicons on the Server
+
+On the server, the ServerCommand will serve the tiddler [[$:/favicon.ico]] at the path `/favicon.ico`.
+
+
+</pre>
+</div>
 <div created="20210108022533327" modified="20210108022551415" tags="[[TiddlyWiki ]]" title="Tagging">
 <pre>设置标签是一种为条目分类的方法。例如，如果您有代表不同个体的条目，您可以标记他们为''朋友''、''家庭''、''同事''等，表明这些人与您之间的关系。
 
@@ -20444,8 +20460,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <pre>新条目 4</pre>
 </div>
 <div title="Untitled 1">
-<pre>
-</pre>
+<pre></pre>
 </div>
 <div created="20210107032157548" modified="20210107032706249" title="Welcome to Stroll">
 <pre>[[test]]</pre>
@@ -20454,8 +20469,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <pre></pre>
 </div>
 <div created="20210114033313526" modified="20210114033651614" tags="[[TiddlyWiki ]]" title="WikiText中的硬换行符">
-<pre>
-```
+<pre>```
 &quot;&quot;&quot;
 This is a line
 and this is a new line

@@ -535,6 +535,8 @@ Error message and password prompt
 
 <li>HTML Formatting</li>
 
+<li>HTML in WikiText</li>
+
 <li>Images in WikiText</li>
 
 <li>ImageWidget</li>
@@ -17372,7 +17374,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210114031504395" list="[[Formatting in WikiText]] WikiText中的硬换行符 [[HTML Formatting]] 列出标签的写法 test ListWidget todo" modified="20210114033257044" title="$:/StoryList">
+<div created="20210114031504395" list="[[HTML in WikiText]] [[Formatting in WikiText]] WikiText中的硬换行符 [[HTML Formatting]] 列出标签的写法 test ListWidget todo" modified="20210114033257044" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -19413,6 +19415,100 @@ TiddlyWiki provides support for rendering pure HTML markup. To do this, simply w
 &lt;iframe src=&quot;https://www.youtube.com/embed/Cj6ho1-G6tw?vq=hd720&amp;iv_load_policy=3&quot;
   width=&quot;450&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen/&gt;
 &lt;/html&gt;
+</pre>
+</div>
+<div created="20210114034316176" modified="20210114034327351" tags="[[TiddlyWiki ]]" title="HTML in WikiText">
+<pre>HTML tags and comments can be used directly in WikiText. For example:
+
+```
+&lt;article class=&quot;hello&quot;&gt;
+This is my nice and simple block of text. HelloThere
+&lt;!-- This comment will not appear in the wikified output --&gt;
+&lt;/article&gt;
+```
+
+[[Widgets share the same syntax as HTML tags|Widgets in WikiText]], and so the following information applies to them, too.
+
+! Block mode versus Inline mode
+
+To get the content of an HTML element to be parsed in block mode, the opening tag must be followed by two linebreaks.
+
+Without the two linebreaks, the tag content will be parsed in inline mode which means that block mode formatting such as wikitext tables, lists and headings is not recognised.
+
+! Self closing elements
+
+The following tags are treated as 'void'. This means that `&lt;tag&gt;` is treated as if it were `&lt;tag/&gt;`, and that  no terminating `&lt;/tag&gt;` is needed (if one is provided it will be ignored and treated as plain text).
+
+* `&lt;area&gt;`, `&lt;base&gt;`, `&lt;br&gt;`, `&lt;col&gt;`, `&lt;command&gt;`, `&lt;embed&gt;`, `&lt;hr&gt;`, `&lt;img&gt;`, `&lt;input&gt;`, `&lt;keygen&gt;`, `&lt;link&gt;`, `&lt;meta&gt;`, `&lt;param&gt;`, `&lt;source&gt;`, `&lt;track&gt;`, `&lt;wbr&gt;`
+
+If you don’t close any other tag then it will behave as if the missing closing tag were at the end of the tiddler.
+
+! Attributes
+
+In an extension of conventional HTML syntax, attributes of elements/widgets can be specified in several different ways: 
+
+* a literal string
+* a transclusion of a TextReference
+* a transclusion of a [[macro/variable|Macros in WikiText]]
+* as the result of a [[Filter Expression]]
+
+!! Literal Attribute Values
+
+Literal attribute values can use several different styles of quoting:
+
+* Single quotes (eg `attr='value'`)
+* Double quotes (eg `attr=&quot;value&quot;`)
+* Tripe double quotes (eg `attr=&quot;&quot;&quot;value&quot;&quot;&quot;`)
+* No quoting is necessary for values that do not contain spaces (eg `attr=value`)
+
+Literal attribute values can include line breaks. For example:
+
+```
+&lt;div data-address=&quot;Mouse House,
+Mouse Lane,
+Rodentville,
+Ratland.&quot;/&gt;
+```
+
+By using triple-double quotes you can specify attribute values that contain single double quotes. For example:
+
+```
+&lt;div data-address=&quot;&quot;&quot;Mouse House,
+&quot;Mouse&quot; Lane,
+Rodentville,
+Ratland.&quot;&quot;&quot;/&gt;
+```
+
+!! Transcluded Attribute Values
+
+Transcluded attribute values are indicated with double curly braces around a TextReference. For example:
+
+```
+attr={{tiddler}}
+attr={{!!field}}
+attr={{tiddler!!field}}
+```
+
+!! Variable Attribute Values
+
+Variable attribute values are indicated with double angle brackets around a [[macro invocation|Macro Calls in WikiText]]. For example:
+
+```
+&lt;div title=&lt;&lt;MyMacro &quot;Brian&quot;&gt;&gt;&gt;
+...
+&lt;/div&gt;
+```
+
+!! Filtered Attribute Values
+
+Filtered attribute values are indicated with triple curly braces around a [[Filter Expression]]. The value will be the first item in the resulting list, or the empty string if the list is empty.
+
+This example shows how to add a prefix to a value:
+
+```
+&lt;$text text={{{ [&lt;currentTiddler&gt;addprefix[$:/myprefix/]] }}} /&gt;
+```
+
 </pre>
 </div>
 <div created="20210108031556703" modified="20210108031606038" tags="[[TiddlyWiki ]]" title="Images in WikiText">

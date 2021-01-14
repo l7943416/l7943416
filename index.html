@@ -569,9 +569,13 @@ Error message and password prompt
 
 <li>Tagging</li>
 
+<li>task</li>
+
 <li>TaskManagementExample (Draggable)</li>
 
 <li>TaskManagementExample 4</li>
+
+<li>TaskManagementExampleDraggableTemplate</li>
 
 <li>test</li>
 
@@ -17360,7 +17364,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div list="todo20210113 todo20210114 [[TaskManagementExample (Draggable)]] todo" title="$:/StoryList">
+<div list="todo" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -19944,6 +19948,9 @@ tw.perf.log()
 ''list'' 字段没有提及的所有条目。请参阅 ~TiddlyWiki 使用的标记条目排序的[[确切规则|Order of Tagged Tiddlers]]。
 </pre>
 </div>
+<div created="20210114023344917" list="todo20210113 todo20210114" modified="20210114023344917" title="task">
+<pre></pre>
+</div>
 <div created="20210114021959179" modified="20210114022658538" tags="Example" title="TaskManagementExample (Draggable)">
 <pre>This is a version of the TaskManagementExample enhanced with the ability to drag and drop the task list to re-order them.
 
@@ -19998,6 +20005,10 @@ tw.perf.log()
 &lt;$list filter=&quot;[!has[draft.of]tag[task]tag[done]sort[created]]&quot;&gt;
 &lt;$checkbox tag=&quot;done&quot;&gt; ~~&lt;$link&gt;&lt;&lt;toc-caption&gt;&gt;&lt;/$link&gt;~~&lt;/$checkbox&gt;&lt;br /&gt;
 &lt;/$list&gt;
+</pre>
+</div>
+<div created="20210114023456403" modified="20210114023503182" tags="" title="TaskManagementExampleDraggableTemplate">
+<pre>&lt;$checkbox tag=&quot;done&quot;&gt; &lt;$link/&gt;&lt;/$checkbox&gt;
 </pre>
 </div>
 <div created="20210111072109167" modified="20210113091807181" tags="" title="test">
@@ -20082,7 +20093,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 &lt;/div&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20210114022221323" modified="20210114022257919" tags="Example done task" title="todo20210113">
+<div created="20210114022221323" modified="20210114023524292" tags="Example task done" title="todo20210113">
 <pre></pre>
 </div>
 <div created="20210114022108932" modified="20210114022206937" tags="Example task" title="todo20210114">

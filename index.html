@@ -447,6 +447,8 @@ Error message and password prompt
 
 <li>20210109深耕散文课旁听笔记</li>
 
+<li>常用</li>
+
 <li>垂釣睡眠-鍾怡雯</li>
 
 <li>达克效应</li>
@@ -573,11 +575,11 @@ Error message and password prompt
 
 <li>PotPlayer</li>
 
+<li>Preserving open tiddlers at startup</li>
+
 <li>Project Notes 项目笔记</li>
 
 <li>RoamResearch</li>
-
-<li>Table-of-Contents Macros</li>
 
 <li>Tagging</li>
 
@@ -17354,8 +17356,8 @@ exports.context = contextWidget;
 <div created="20210109073058746" modified="20210113074506777" title="$:/state/tab/search-results/sidebar">
 <pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
-<div created="20210107030518615" modified="20210114041239031" title="$:/state/tab/sidebar--595412856">
-<pre>Table-of-Contents Macros</pre>
+<div created="20210107030518615" modified="20210114041336312" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20210107092108321" modified="20210107092108321" title="$:/state/toc/Create bookmarks--1774919095">
 <pre>show</pre>
@@ -17378,7 +17380,7 @@ exports.context = contextWidget;
 <div bag="default" revision="1" title="$:/status/UserName">
 <pre></pre>
 </div>
-<div created="20210114031504395" list="[[Table-of-Contents Macros]] [[Adding a table of contents to the sidebar]] [[HTML in WikiText]] [[Formatting in WikiText]] WikiText中的硬换行符 [[HTML Formatting]] 列出标签的写法 test ListWidget todo" modified="20210114040940311" title="$:/StoryList">
+<div created="20210114041308678" list="[[Preserving open tiddlers at startup]] [[Adding a table of contents to the sidebar]] 常用" modified="20210114041658544" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17703,6 +17705,16 @@ exports.context = contextWidget;
 
 [img[https://raw.githubusercontent.com/l7943416/pic/main/image-20210109164845471.png]]
 </pre>
+</div>
+<div created="20210114040958086" modified="20210114041330498" tags="$:/tags/SideBar" title="常用">
+<pre>
+&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
+
+&lt;/div&gt;
+
+[[todo]]</pre>
 </div>
 <div created="20210109091005956" modified="20210109091018283" tags="" title="垂釣睡眠-鍾怡雯">
 <pre>一定是誰下的咒語，拐跑了我從未出走的睡眠。鬧鐘的聲音被靜夜顯微數十
@@ -19223,10 +19235,10 @@ M，除了最原始的的生命，月台上的每一个人早将拥有的一切�
 
 </pre>
 </div>
-<div created="20210114040926364" modified="20210114040935729" tags="[[TiddlyWiki ]]" title="Adding a table of contents to the sidebar">
+<div created="20210114040926364" modified="20210114041330508" tags="[[TiddlyWiki ]]" title="Adding a table of contents to the sidebar">
 <pre>The standard mechanisms in ~TiddlyWiki for creating Table-of-Contents are macros known collectively as &quot;toc&quot; [[macros|Macros]] (click on link to learn more about macros). They use `Tagging` as their means of creating relationships, so be sure to review the [[Tagging]] topic tiddler if tagging is a new concept for you.
 
-A customisable [[table of contents|Table-of-Contents Macros]] can be added to the sidebar with the following steps:
+A customisable [[table of contents|常用]] can be added to the sidebar with the following steps:
 
 # Create a tiddler called [[TableOfContents]]
 # Give it the tag ''~$:/tags/SideBar''
@@ -20180,6 +20192,18 @@ tw.perf.log()
 <div created="20210108083847150" modified="20210108083847150" title="PotPlayer">
 <pre></pre>
 </div>
+<div created="20210114041709883" modified="20210114041717368" tags="[[TiddlyWiki ]]" title="Preserving open tiddlers at startup">
+<pre>Ordinarily, at startup TiddlyWiki displays the tiddlers specified as a filter in the tiddler [[$:/DefaultTiddlers]].
+
+Sometimes it's useful to re-open the same tiddlers that were open when the file was saved. To do so, set [[$:/DefaultTiddlers]] to this filter:
+
+```
+[list[$:/StoryList]]
+```
+
+This filter returns the tiddlers specified in the [[$:/StoryList]] tiddler, which is the system tiddler that TiddlyWiki uses to store the sequence of tiddlers in the current story.
+</pre>
+</div>
 <div created="20210113034740437" modified="20210113034757082" tags="卡片笔记" title="Project Notes 项目笔记">
 <pre>!Project Notes 项目笔记
 
@@ -20187,16 +20211,6 @@ tw.perf.log()
 </div>
 <div created="20210108083847148" modified="20210108083847148" title="RoamResearch">
 <pre></pre>
-</div>
-<div created="20210114040958086" modified="20210114041252048" tags="$:/tags/SideBar" title="Table-of-Contents Macros">
-<pre>
-&lt;div class=&quot;tc-table-of-contents&quot;&gt;
-
-&lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
-
-&lt;/div&gt;
-
-[[todo]]</pre>
 </div>
 <div created="20210108022533327" modified="20210108022551415" tags="[[TiddlyWiki ]]" title="Tagging">
 <pre>设置标签是一种为条目分类的方法。例如，如果您有代表不同个体的条目，您可以标记他们为''朋友''、''家庭''、''同事''等，表明这些人与您之间的关系。

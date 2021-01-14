@@ -19944,7 +19944,7 @@ tw.perf.log()
 ''list'' 字段没有提及的所有条目。请参阅 ~TiddlyWiki 使用的标记条目排序的[[确切规则|Order of Tagged Tiddlers]]。
 </pre>
 </div>
-<div created="20210114021959179" modified="20210114022016089" tags="Example" title="TaskManagementExample (Draggable)">
+<div created="20210114021959179" modified="20210114022658538" tags="Example" title="TaskManagementExample (Draggable)">
 <pre>This is a version of the TaskManagementExample enhanced with the ability to drag and drop the task list to re-order them.
 
 ! Outstanding tasks
@@ -19962,6 +19962,24 @@ tw.perf.log()
 &lt;$checkbox tag=&quot;done&quot;&gt; ~~&lt;$link/&gt;~~&lt;/$checkbox&gt;
 &lt;/div&gt;
 &lt;/$list&gt;
+
+```
+
+//Drag the tasks to re-order them//
+
+&lt;&lt;list-tagged-draggable tag:&quot;task&quot; subFilter:&quot;!has[draft.of]!tag[done]&quot; itemTemplate:&quot;TaskManagementExampleDraggableTemplate&quot; emptyMessage:&quot;You don't have any active tasks&quot;&gt;&gt;
+
+! Completed tasks
+
+//(Listed in reverse order of completion)//
+
+&lt;$list filter=&quot;[!has[draft.of]tag[task]tag[done]sort[created]]&quot;&gt;
+&lt;div&gt;
+&lt;$checkbox tag=&quot;done&quot;&gt; ~~&lt;$link/&gt;~~&lt;/$checkbox&gt;
+&lt;/div&gt;
+&lt;/$list&gt;
+```
+
 </pre>
 </div>
 <div created="20210107091554198" modified="20210107091707635" tags="" title="TaskManagementExample 4" type="text/vnd.tiddlywiki">
@@ -20051,7 +20069,7 @@ TiddlyWiki 首先是一种工具：它是一个免费的可下载工具，用于
 <div created="20210113085408001" modified="20210113085412591" tags="" title="todo">
 <pre></pre>
 </div>
-<div created="20210114022221323" modified="20210114022249335" tags="Example done" title="todo20210113">
+<div created="20210114022221323" modified="20210114022257919" tags="Example done task" title="todo20210113">
 <pre></pre>
 </div>
 <div created="20210114022108932" modified="20210114022206937" tags="Example task" title="todo20210114">
